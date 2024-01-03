@@ -8,7 +8,7 @@ import { init } from "@noriginmedia/norigin-spatial-navigation";
 
 init({
   // debug: true
-  throttle: 200,
+  throttle: 300,
 });
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

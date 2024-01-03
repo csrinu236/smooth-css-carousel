@@ -6,17 +6,20 @@ import { subscribe, unsubscribe } from "./utils/event";
 const CarouselComponent = ({ length = 40, CI }) => {
   const randomArray = Array.from({ length }, (_, index) => index);
 
-  //   useEffect(() => {
-  //     const interval = setInterval((i) => {
-  //       if (CI === 0) {
-  //         ref.current.querySelector("#jpl-next").click();
-  //       }
-  //     }, 100);
+  useEffect(() => {
+    let interval = null;
+    setTimeout(() => {
+      interval = setInterval((i) => {
+        if (CI === 1) {
+          //   ref.current.querySelector("#jpl-next").click();
+        }
+      }, 200);
+    }, 5000);
 
-  //     return () => {
-  //       clearInterval(interval);
-  //     };
-  //   }, []);
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
 
   //   useEffect(() => {
   //     ref.current.querySelector("#jpl-next").addEventListener("click", () => {});
