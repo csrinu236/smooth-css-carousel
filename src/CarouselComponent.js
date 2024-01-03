@@ -19,7 +19,7 @@ const CarouselComponent = ({ length = 40, CI }) => {
     return () => {
       clearInterval(interval);
     };
-  }, []);
+  }, [CI]);
 
   //   useEffect(() => {
   //     ref.current.querySelector("#jpl-next").addEventListener("click", () => {});
