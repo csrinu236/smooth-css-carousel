@@ -22,7 +22,7 @@ const CarouselComponent = ({ length = 40, CI }) => {
   //     ref.current.querySelector("#jpl-next").addEventListener("click", () => {});
   //   }, []);
 
-  const [pressHoldDown, setpressHoldDown] = useState(false);
+  //   const [pressHoldDown, setpressHoldDown] = useState(false);
 
   useEffect(() => {
     const jumpListener = (e) => {
