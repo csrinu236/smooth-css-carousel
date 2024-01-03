@@ -9,7 +9,7 @@ function App() {
   useEffect(() => {
     setFocus("scrollable0#0");
     console.log("getCurrentFocusKey()", getCurrentFocusKey());
-  }, []);
+  }, [setFocus]);
 
   // Jumping cards logic start ==================
   const myTimeout = useRef(null);
