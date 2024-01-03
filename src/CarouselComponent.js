@@ -1,5 +1,5 @@
 import { FocusContext, useFocusable } from "@noriginmedia/norigin-spatial-navigation";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import CardComponent from "./CardComponent";
 import { subscribe, unsubscribe } from "./utils/event";
 
