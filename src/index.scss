@@ -198,7 +198,7 @@ img {
   content: "";
   position: absolute;
   inset: 0;
-  width: calc(var(--jpl-carousel-width) / var(--items-to-show));
+  width: calc(var(--jpl-carousel-width) / 4.25);
   // margin-left: 10px;
   border: 6px solid white;
   border-radius: 10px;

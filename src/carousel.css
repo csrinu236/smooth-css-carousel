@@ -213,7 +213,7 @@ body {
 }
 
 .content {
-  width: calc(var(--jpl-carousel-width) / var(--items-to-show));
+  width: calc(var(--jpl-carousel-width) / 4.25);
   float: left;
   height: 200px;
   object-fit: cover;
