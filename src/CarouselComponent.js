@@ -29,9 +29,9 @@ const CarouselComponent = ({ length = 40, CI }) => {
       if (e?.detail?.dir === "down") {
         // console.log("e.detail", e.detail);
         // console.log("scrollable" + CI);
-        setpressHoldDown(true);
+        // setpressHoldDown(true);
       } else if (e?.detail?.dir === "up") {
-        setpressHoldDown(false);
+        // setpressHoldDown(false);
       }
     };
 
@@ -57,7 +57,7 @@ const CarouselComponent = ({ length = 40, CI }) => {
       <jpl-carousel
         ref={ref}
         class={`jpl-carousel ${hasFocusedChild ? "focusedCarousal" : ""}`}
-        slidesperscroll={pressHoldDown ? "3" : "1"}
+        slidesperscroll="1"
         mode="standard"
         scrollMode="manual"
         isMobile="false"
@@ -103,8 +103,8 @@ const CarouselComponent = ({ length = 40, CI }) => {
             {randomArray.map((item, index) => {
               const isFirstCard = index === 0;
               const isLastCard = length - 1 === index;
-              const isFocusable = pressHoldDown ? index % 3 === 0 || isLastCard : true;
-              //   const isFocusable = index % 3 === 0;
+              //   const isFocusable = pressHoldDown ? index % 3 === 0 || isLastCard : true;
+              const isFocusable = true;
               const props = { CI, isFirstCard, isLastCard, isFocusable, item };
               return <CardComponent key={item} {...props}></CardComponent>;
             })}

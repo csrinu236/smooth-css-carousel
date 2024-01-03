@@ -422,8 +422,8 @@
                       var o = { scrollWidth: i, scrollPerClick: this._scrollPerClick };
                       console.log(r({}, o)), i < this._scrollPerClick ? (i = 0) : (i -= this._scrollPerClick);
                     } else if (1 == t) {
-                      console.log(i + this._scrollPerClick === this._sliderWidth),
-                        i + this._scrollPerClick === this._sliderWidth || (i += this._scrollPerClick);
+                      console.log(i + this._scrollPerClick >= this._sliderWidth),
+                        i + this._scrollPerClick >= this._sliderWidth || (i += this._scrollPerClick);
                       var n = {
                         sliderWidth: this._sliderWidth,
                         scrollWidth: i,
