@@ -215,7 +215,7 @@ body {
 .content {
   width: calc(var(--jpl-carousel-width) / 4.25);
   float: left;
-  height: 200px;
+  height: 250px;
   object-fit: cover;
   margin-left: 10px;
   background: blue;
