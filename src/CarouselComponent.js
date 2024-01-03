@@ -47,7 +47,7 @@ const CarouselComponent = ({ length = 40, CI }) => {
     };
   }, []);
 
-  const { ref, focusKey, hasFocusedChild, focused, setFocus, focusSelf } = useFocusable({
+  const { ref, focusKey, hasFocusedChild } = useFocusable({
     trackChildren: true,
     focusKey: "scrollable" + CI,
   });

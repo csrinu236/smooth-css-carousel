@@ -3,7 +3,7 @@ import React from "react";
 
 const CardComponent = ({ isFirstCard, isLastCard, item, CI, isFocusable }) => {
   console.log({ item });
-  const { ref, focused, setFocus, getCurrentFocusKey } = useFocusable({
+  const { ref, focused } = useFocusable({
     focusable: isFocusable,
     focusKey: "scrollable" + CI + "#" + item,
     onFocus: (layout, props, details) => {

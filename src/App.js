@@ -1,11 +1,10 @@
 import { useEffect, useRef } from "react";
 import Home from "./Home";
-import logo from "./logo.svg";
 import { FocusContext, useFocusable } from "@noriginmedia/norigin-spatial-navigation";
 import { publish } from "./utils/event";
 
 function App() {
-  const { ref, setFocus, focusKey, getCurrentFocusKey, focusSelf } = useFocusable({});
+  const { ref, setFocus, focusKey, getCurrentFocusKey } = useFocusable({});
 
   useEffect(() => {
     setFocus("scrollable0#0");
