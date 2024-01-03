@@ -371,7 +371,7 @@
                       : (this._sliderWidth = this._contentArray[1].offsetLeft * this._contentArray.length),
                     ("wrap" != this._mode && "standard" != this._mode) ||
                       (this.slider.style.setProperty("transform", "translateX(0px)"),
-                      this.slider.style.setProperty("transition", "all 0.2s ease-in-out"));
+                      this.slider.style.setProperty("transition", "all 0.3s ease-in-out"));
                 },
               },
               {
@@ -458,7 +458,7 @@
                 key: "transformCarousel",
                 value: function (t) {
                   var e = !(arguments.length > 1 && void 0 !== arguments[1]) || arguments[1];
-                  e ? this.slider.style.setProperty("transition", "all 0.2s ease-in-out") : this.slider.style.setProperty("transition", "none"),
+                  e ? this.slider.style.setProperty("transition", "all 0.3s ease-in-out") : this.slider.style.setProperty("transition", "none"),
                     this.slider.style.setProperty("transform", "translateX(".concat(t, ")"));
                 },
               },
