@@ -174,15 +174,11 @@ img {
 // ==============================================
 // ==============================================
 
-.jpl-slider-wrapper {
-  border: 6px solid transparent;
-}
-
 .jpl-carousel-item {
   border: 6px solid transparent;
 }
 .jpl-carousel-item.focused {
-  border: 6px solid white !important;
+  // border: 6px solid white !important;
 }
 
 .jpl-carousel {
@@ -191,4 +187,15 @@ img {
 
 .content {
   background: rgba(255, 255, 255, 0.369) !important;
+}
+
+.focusedCarousal::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: calc(var(--jpl-carousel-width) / var(--items-to-show));
+  // margin-left: 10px;
+  border: 6px solid white;
+  border-radius: 10px;
+  z-index: 10;
 }
