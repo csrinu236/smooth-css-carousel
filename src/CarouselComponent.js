@@ -45,7 +45,7 @@ const CarouselComponent = ({ length = 40, CI }) => {
       //   clearTimeout(timeout);
       unsubscribe("scrollable" + CI, jumpListener);
     };
-  }, []);
+  }, [CI]);
 
   const { ref, focusKey, hasFocusedChild } = useFocusable({
     trackChildren: true,

@@ -9,7 +9,7 @@ function App() {
   useEffect(() => {
     setFocus("scrollable0#0");
     console.log("getCurrentFocusKey()", getCurrentFocusKey());
-  }, [setFocus]);
+  }, [setFocus, getCurrentFocusKey]);
 
   // Jumping cards logic start ==================
   const myTimeout = useRef(null);
@@ -46,7 +46,7 @@ function App() {
       document.removeEventListener("keydown", keyDownEventListener);
       document.removeEventListener("keyup", keyUpEventListener);
     };
-  }, []);
+  }, [getCurrentFocusKey]);
   // Jumping cards logic END ==================
 
   return (
