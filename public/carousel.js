@@ -26,43 +26,28 @@
           }
           return r;
         }
-        function r(t) {
-          for (var r = 1; r < arguments.length; r++) {
-            var i = null != arguments[r] ? arguments[r] : {};
-            r % 2
-              ? e(Object(i), !0).forEach(function (e) {
-                  f(t, e, i[e]);
-                })
-              : Object.getOwnPropertyDescriptors
-              ? Object.defineProperties(t, Object.getOwnPropertyDescriptors(i))
-              : e(Object(i)).forEach(function (e) {
-                  Object.defineProperty(t, e, Object.getOwnPropertyDescriptor(i, e));
-                });
-          }
-          return t;
-        }
-        function i(t, e) {
+        function r(t, e) {
           var r = ("undefined" != typeof Symbol && t[Symbol.iterator]) || t["@@iterator"];
           if (!r) {
             if (
               Array.isArray(t) ||
               (r = (function (t, e) {
                 if (!t) return;
-                if ("string" == typeof t) return o(t, e);
+                if ("string" == typeof t) return i(t, e);
                 var r = Object.prototype.toString.call(t).slice(8, -1);
                 "Object" === r && t.constructor && (r = t.constructor.name);
                 if ("Map" === r || "Set" === r) return Array.from(t);
-                if ("Arguments" === r || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r)) return o(t, e);
+                if ("Arguments" === r || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r)) return i(t, e);
               })(t)) ||
               (e && t && "number" == typeof t.length)
             ) {
               r && (t = r);
-              var i = 0,
+              var o = 0,
                 n = function () {};
               return {
                 s: n,
                 n: function () {
-                  return i >= t.length ? { done: !0 } : { done: !1, value: t[i++] };
+                  return o >= t.length ? { done: !0 } : { done: !1, value: t[o++] };
                 },
                 e: function (t) {
                   throw t;
@@ -76,7 +61,7 @@
           }
           var s,
             l = !0,
-            c = !1;
+            a = !1;
           return {
             s: function () {
               r = r.call(t);
@@ -86,41 +71,41 @@
               return (l = t.done), t;
             },
             e: function (t) {
-              (c = !0), (s = t);
+              (a = !0), (s = t);
             },
             f: function () {
               try {
                 l || null == r.return || r.return();
               } finally {
-                if (c) throw s;
+                if (a) throw s;
               }
             },
           };
         }
-        function o(t, e) {
+        function i(t, e) {
           (null == e || e > t.length) && (e = t.length);
           for (var r = 0, i = new Array(e); r < e; r++) i[r] = t[r];
           return i;
         }
-        function n(t, e) {
+        function o(t, e) {
           for (var r = 0; r < e.length; r++) {
             var i = e[r];
             (i.enumerable = i.enumerable || !1), (i.configurable = !0), "value" in i && (i.writable = !0), Object.defineProperty(t, i.key, i);
           }
         }
-        function s(e, r) {
+        function n(e, r) {
           if (r && ("object" === t(r) || "function" == typeof r)) return r;
           if (void 0 !== r) throw new TypeError("Derived constructors may only return object or undefined");
-          return l(e);
+          return s(e);
         }
-        function l(t) {
+        function s(t) {
           if (void 0 === t) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
           return t;
         }
-        function c(t) {
+        function l(t) {
           var e = "function" == typeof Map ? new Map() : void 0;
           return (
-            (c = function (t) {
+            (l = function (t) {
               if (null === t || ((r = t), -1 === Function.toString.call(r).indexOf("[native code]"))) return t;
               var r;
               if ("function" != typeof t) throw new TypeError("Super expression must either be null or a function");
@@ -132,26 +117,26 @@
                 return a(t, arguments, u(this).constructor);
               }
               return (
-                (i.prototype = Object.create(t.prototype, { constructor: { value: i, enumerable: !1, writable: !0, configurable: !0 } })), h(i, t)
+                (i.prototype = Object.create(t.prototype, { constructor: { value: i, enumerable: !1, writable: !0, configurable: !0 } })), d(i, t)
               );
             }),
-            c(t)
+            l(t)
           );
         }
         function a(t, e, r) {
           return (
-            (a = d()
+            (a = c()
               ? Reflect.construct
               : function (t, e, r) {
                   var i = [null];
                   i.push.apply(i, e);
                   var o = new (Function.bind.apply(t, i))();
-                  return r && h(o, r.prototype), o;
+                  return r && d(o, r.prototype), o;
                 }),
             a.apply(null, arguments)
           );
         }
-        function d() {
+        function c() {
           if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
           if (Reflect.construct.sham) return !1;
           if ("function" == typeof Proxy) return !0;
@@ -161,14 +146,14 @@
             return !1;
           }
         }
-        function h(t, e) {
+        function d(t, e) {
           return (
-            (h =
+            (d =
               Object.setPrototypeOf ||
               function (t, e) {
                 return (t.__proto__ = e), t;
               }),
-            h(t, e)
+            d(t, e)
           );
         }
         function u(t) {
@@ -181,32 +166,32 @@
             u(t)
           );
         }
-        function f(t, e, r) {
+        function h(t, e, r) {
           return e in t ? Object.defineProperty(t, e, { value: r, enumerable: !0, configurable: !0, writable: !0 }) : (t[e] = r), t;
         }
-        var v = (function (t) {
+        var f = (function (t) {
           !(function (t, e) {
             if ("function" != typeof e && null !== e) throw new TypeError("Super expression must either be null or a function");
             (t.prototype = Object.create(e && e.prototype, { constructor: { value: t, writable: !0, configurable: !0 } })),
               Object.defineProperty(t, "prototype", { writable: !1 }),
-              e && h(t, e);
+              e && d(t, e);
           })(_, t);
-          var e,
-            o,
-            c,
+          var i,
+            l,
             a,
+            f,
             v,
             p =
-              ((e = _),
-              (o = d()),
+              ((i = _),
+              (l = c()),
               function () {
                 var t,
-                  r = u(e);
-                if (o) {
-                  var i = u(this).constructor;
-                  t = Reflect.construct(r, arguments, i);
-                } else t = r.apply(this, arguments);
-                return s(this, t);
+                  e = u(i);
+                if (l) {
+                  var r = u(this).constructor;
+                  t = Reflect.construct(e, arguments, r);
+                } else t = e.apply(this, arguments);
+                return n(this, t);
               });
           function _() {
             var t;
@@ -214,52 +199,79 @@
               (function (t, e) {
                 if (!(t instanceof e)) throw new TypeError("Cannot call a class as a function");
               })(this, _),
-              f(l((t = p.call(this))), "_slidesPerScroll", void 0),
-              f(l(t), "_withControls", void 0),
-              f(l(t), "_mode", void 0),
-              f(l(t), "_type", void 0),
-              f(l(t), "_scrollMode", void 0),
-              f(l(t), "_interval", void 0),
-              f(l(t), "_onHoverStop", void 0),
-              f(l(t), "_isBrowser", void 0),
-              f(l(t), "_isMobile", void 0),
-              f(l(t), "_withIndicators", void 0),
-              f(l(t), "_id", void 0),
-              f(l(t), "_scrollInterval", void 0),
-              f(l(t), "_scrollDirection", 1),
-              f(l(t), "_clonedItems", 0),
-              f(l(t), "_scrollPerClick", void 0),
-              f(l(t), "_isCenteredMode", void 0),
-              f(l(t), "_sliderWidth", void 0),
-              f(l(t), "_contentArray", []),
-              f(l(t), "_marginLeft", void 0),
-              f(l(t), "_contentWidth", void 0),
-              f(l(t), "_marginRight", void 0),
-              f(l(t), "previousButton", void 0),
-              f(l(t), "nextButton", void 0),
-              f(l(t), "slider", void 0),
-              f(l(t), "sliderContainer", void 0),
-              f(l(t), "carouselContainer", void 0),
-              f(l(t), "INVERT_TIMEOUT", 490),
-              f(l(t), "scrollContinously", function () {
+              h(s((t = p.call(this))), "_slidesPerScroll", void 0),
+              h(s(t), "_withControls", void 0),
+              h(s(t), "_mode", void 0),
+              h(s(t), "_type", void 0),
+              h(s(t), "_scrollMode", void 0),
+              h(s(t), "_interval", void 0),
+              h(s(t), "_onHoverStop", void 0),
+              h(s(t), "_isBrowser", void 0),
+              h(s(t), "_isMobile", void 0),
+              h(s(t), "_withIndicators", void 0),
+              h(s(t), "_id", void 0),
+              h(s(t), "_scrollInterval", void 0),
+              h(s(t), "_scrollDirection", 1),
+              h(s(t), "_clonedItems", 0),
+              h(s(t), "_scrollPerClick", void 0),
+              h(s(t), "_isCenteredMode", void 0),
+              h(s(t), "_sliderWidth", void 0),
+              h(s(t), "_contentArray", []),
+              h(s(t), "_marginLeft", void 0),
+              h(s(t), "_contentWidth", void 0),
+              h(s(t), "_marginRight", void 0),
+              h(s(t), "previousButton", void 0),
+              h(s(t), "nextButton", void 0),
+              h(s(t), "slider", void 0),
+              h(s(t), "sliderContainer", void 0),
+              h(s(t), "carouselContainer", void 0),
+              h(s(t), "INVERT_TIMEOUT", 490),
+              h(s(t), "scrollContinously", function () {
                 t._scrollInterval = setInterval(function () {
                   (t._scrollDirection = 1), t.moveTo(t._scrollDirection), t._withIndicators && t.changeActiveItem();
                 }, t._interval);
               }),
-              f(l(t), "stopContinousScroll", function () {
+              h(s(t), "smoothScroll", function (e) {
+                var r,
+                  i = t.slider,
+                  o = t.getTranslateX(),
+                  n = function n(s) {
+                    r || (r = s);
+                    var l = 0.8 * (s - r);
+                    if ("right" === e)
+                      (i.style.transform = "translateX(-".concat(o + l, "px)")),
+                        o + l + t._scrollPerClick < t._sliderWidth - 10 &&
+                          requestAnimationFrame(function (t) {
+                            return n(t);
+                          });
+                    else {
+                      t._sliderWidth, t.sliderContainer.offsetWidth;
+                      console.log({ scrollWidth: o, distanceToBeMovedInOneCB: l }),
+                        (i.style.transform = o - l < 0 ? "translateX(0)" : "translateX(".concat(-(o - l), "px)")),
+                        o - l >= 0 &&
+                          requestAnimationFrame(function (t) {
+                            return n(t);
+                          });
+                    }
+                  };
+                requestAnimationFrame(function (t) {
+                  return n(t);
+                });
+              }),
+              h(s(t), "stopContinousScroll", function () {
                 clearInterval(t._scrollInterval);
               }),
-              f(l(t), "addCloneElements", function () {
+              h(s(t), "addCloneElements", function () {
                 if ("cards" == t._type) {
                   t._clonedItems = t._contentArray.length;
                   var e,
-                    r = 0,
+                    i = 0,
                     o = 0,
-                    n = i(t._contentArray);
+                    n = r(t._contentArray);
                   try {
                     for (n.s(); !(e = n.n()).done; ) {
                       var s = e.value;
-                      if ((r += s.offsetLeft) + s.offsetWidth > t.sliderContainer.offsetWidth) break;
+                      if ((i += s.offsetLeft) + s.offsetWidth > t.sliderContainer.offsetWidth) break;
                       o++;
                     }
                   } catch (t) {
@@ -268,11 +280,11 @@
                     n.f();
                   }
                   for (var l = 0; l < o; l++) {
-                    var c = t._contentArray[l].cloneNode(!0);
-                    c.classList.add("clone"), t.slider.appendChild(c);
+                    var a = t._contentArray[l].cloneNode(!0);
+                    a.classList.add("clone"), t.slider.appendChild(a);
                   }
-                  for (var a = t._contentArray.length; a > o; a--) {
-                    var d = t._contentArray[a - 1].cloneNode(!0);
+                  for (var c = t._contentArray.length; c > o; c--) {
+                    var d = t._contentArray[c - 1].cloneNode(!0);
                     d.classList.add("clone"), t.slider.insertBefore(d, t.slider.children[0]);
                   }
                   t.transformCarousel(
@@ -289,22 +301,24 @@
                     t.slider.insertBefore(t._contentArray[t._contentArray.length - 2].cloneNode(!0), t.slider.children[0]),
                     t._isCenteredMode)
                   ) {
-                    var h = (t.sliderContainer.offsetWidth - t._scrollPerClick) / 2;
-                    t.transformCarousel("-".concat(Math.abs(t._clonedItems * t._scrollPerClick - h), "px"), !0);
+                    var u = (t.sliderContainer.offsetWidth - t._scrollPerClick) / 2;
+                    t.transformCarousel("-".concat(Math.abs(t._clonedItems * t._scrollPerClick - u), "px"), !0);
                   } else t.transformCarousel("-".concat(Math.abs(t._clonedItems * t._scrollPerClick - 1), "px"), !0);
               }),
               t
             );
           }
           return (
-            (c = _),
-            (a = [
+            (a = _),
+            (f = [
               {
                 key: "connectedCallback",
                 value: function () {
                   var t = this;
                   setTimeout(function () {
                     (t._withControls = t.getAttribute("withcontrols") || "auto"),
+                      (t._pressHoldDown = "true" === t.getAttribute("pressholddown") || !1),
+                      (t._direction = "right" === t.getAttribute("direction") ? "right" : "left"),
                       (t._mode = t.getAttribute("mode") || "standard"),
                       (t._type = t.getAttribute("type") || "cards"),
                       (t._scrollMode = t.getAttribute("scrollmode") || "manual"),
@@ -320,9 +334,7 @@
                           "attributes" === e.type &&
                             (console.log("Attribute " + e.attributeName + " changed to " + t.getAttribute(e.attributeName)),
                             "cards" == t._type &&
-                              ((t._slidesPerScroll = +t.getAttribute("slidesperscroll")),
-                              (t._scrollPerClick = t._contentArray[1].offsetLeft * t._slidesPerScroll),
-                              console.log({ scrollPerClick: t._scrollPerClick })));
+                              ((t._pressHoldDown = t.getAttribute("pressholddown")), t._pressHoldDown && t.smoothScroll(t._direction)));
                         });
                       })),
                       t.initCarousel(),
@@ -339,6 +351,7 @@
                     this.addRemoveListenersOnArrows(),
                     this.checkIfDisplayArrows(),
                     this.addRemoveSliderEventListeners(),
+                    this._pressHoldDown && this.smoothScroll(this._direction),
                     "wrap" === this._mode &&
                       (this.sliderContainer.scrollWidth > this.sliderContainer.offsetWidth ? this.addCloneElements() : this.hideArrows("both")),
                     "auto" === this._scrollMode && (this.hideArrows("both"), this.scrollContinously()),
@@ -359,19 +372,19 @@
                 value: function () {
                   (this._contentArray = this.querySelectorAll(".jpl-carousel-item")),
                     (this._marginLeft = this._contentArray[0].offsetLeft),
-                    (this._contentWidth = this._contentArray[0].offsetWidth),
-                    (this._marginRight = this._contentArray[1].offsetLeft - (this._marginLeft + this._contentWidth) - this._marginLeft),
-                    "cards" == this._type && (this._scrollPerClick = this._contentArray[1].offsetLeft * this._slidesPerScroll),
+                    (this._contentWidth = this._contentArray[0].getBoundingClientRect().width);
+                  var t = this._contentArray[1].getBoundingClientRect().left - this.slider.getBoundingClientRect().left;
+                  (this._marginRight = t - (this._marginLeft + this._contentWidth) - this._marginLeft),
+                    "cards" == this._type && (this._scrollPerClick = t * this._slidesPerScroll),
                     "banner" == this._type &&
                       (this._isCenteredMode
                         ? (this._scrollPerClick = this._marginLeft + this._marginRight + this._contentWidth)
-                        : (this._scrollPerClick = this._contentArray[1].offsetLeft)),
+                        : (this._scrollPerClick = t)),
                     this._isCenteredMode
                       ? (this._sliderWidth = (this._marginLeft + this._marginRight + this._contentWidth) * this._contentArray.length)
-                      : (this._sliderWidth = this._contentArray[1].offsetLeft * this._contentArray.length),
+                      : (this._sliderWidth = t * this._contentArray.length),
                     ("wrap" != this._mode && "standard" != this._mode) ||
-                      (this.slider.style.setProperty("transform", "translateX(0px)"),
-                      this.slider.style.setProperty("transition", "all 0.4s ease-in-out"));
+                      (this.slider.style.setProperty("transform", "translateX(0px)"), this.slider.style.setProperty("transition", "all 0.2s linear"));
                 },
               },
               {
@@ -411,27 +424,40 @@
                 key: "moveTo",
                 value: function (t) {
                   if ("wrap" == this._mode) {
-                    var e = this.getTranslateX();
-                    0 == t ? (e -= this._scrollPerClick) : 1 == t && (e += this._scrollPerClick),
-                      this.transformCarousel("-".concat(e, "px")),
-                      this.checkIfInvert(t, e);
+                    var r = this.getTranslateX();
+                    0 == t ? (r -= this._scrollPerClick) : 1 == t && (r += this._scrollPerClick),
+                      this.transformCarousel("-".concat(r, "px")),
+                      this.checkIfInvert(t, r);
                   }
                   if ("standard" == this._mode) {
                     var i = this.getTranslateX();
                     if (0 == t) {
                       var o = { scrollWidth: i, scrollPerClick: this._scrollPerClick };
-                      console.log(r({}, o)), i < this._scrollPerClick ? (i = 0) : (i -= this._scrollPerClick);
-                    } else if (1 == t) {
-                      console.log(i + this._scrollPerClick >= this._sliderWidth),
-                        i + this._scrollPerClick >= this._sliderWidth || (i += this._scrollPerClick);
-                      var n = {
-                        sliderWidth: this._sliderWidth,
-                        scrollWidth: i,
-                        sliderContainerWidth: this.sliderContainer.offsetWidth,
-                        scrollPerClick: this._scrollPerClick,
-                      };
-                      console.log(r({}, n));
-                    }
+                      console.log(
+                        (function (t) {
+                          for (var r = 1; r < arguments.length; r++) {
+                            var i = null != arguments[r] ? arguments[r] : {};
+                            r % 2
+                              ? e(Object(i), !0).forEach(function (e) {
+                                  h(t, e, i[e]);
+                                })
+                              : Object.getOwnPropertyDescriptors
+                              ? Object.defineProperties(t, Object.getOwnPropertyDescriptors(i))
+                              : e(Object(i)).forEach(function (e) {
+                                  Object.defineProperty(t, e, Object.getOwnPropertyDescriptor(i, e));
+                                });
+                          }
+                          return t;
+                        })({}, o)
+                      ),
+                        i < this._scrollPerClick ? (i = 0) : (i -= this._scrollPerClick);
+                    } else
+                      1 == t &&
+                        (i + this._scrollPerClick > this._sliderWidth - 10 || (i += this._scrollPerClick),
+                        this._sliderWidth,
+                        this.sliderContainer.offsetWidth,
+                        this._scrollPerClick,
+                        console.log(i + this._scrollPerClick, this._sliderWidth));
                     this.transformCarousel("-".concat(i, "px"));
                   }
                 },
@@ -457,9 +483,7 @@
               {
                 key: "transformCarousel",
                 value: function (t) {
-                  var e = !(arguments.length > 1 && void 0 !== arguments[1]) || arguments[1];
-                  e ? this.slider.style.setProperty("transition", "all 0.4s ease-in-out") : this.slider.style.setProperty("transition", "none"),
-                    this.slider.style.setProperty("transform", "translateX(".concat(t, ")"));
+                  this.slider.style.transform = "translateX(".concat(t, ")");
                 },
               },
               {
@@ -577,22 +601,22 @@
                           5 === l && r[l].classList.add("small"),
                           l > 5 && (r[l].classList.add("hide"), r[l].classList.add("small"));
                     if (!e && s == r.length - 1 && 0 == o)
-                      for (var c = 0; c < r.length; c++)
-                        c == r.length - 1 && r[c].classList.add("active"),
-                          c + 5 < r.length && (r[c].classList.add("hide"), r[c].classList.add("small")),
-                          c + 5 === r.length && r[c].classList.add("small"),
-                          c + 5 > r.length && (r[c].classList.remove("hide"), r[c].classList.remove("small"));
+                      for (var a = 0; a < r.length; a++)
+                        a == r.length - 1 && r[a].classList.add("active"),
+                          a + 5 < r.length && (r[a].classList.add("hide"), r[a].classList.add("small")),
+                          a + 5 === r.length && r[a].classList.add("small"),
+                          a + 5 > r.length && (r[a].classList.remove("hide"), r[a].classList.remove("small"));
                     t.classList.remove("small");
                   }
                   if ("banner" == this._type && e) {
                     if ("wrap" === this._mode) {
-                      var a = 2 * this._scrollPerClick + s * this._scrollPerClick,
+                      var c = 2 * this._scrollPerClick + s * this._scrollPerClick,
                         d = this.getTranslateX();
-                      d || (a = this._scrollPerClick), this.transformCarousel("-".concat(a, "px"), !0), this.checkIfInvert(this._scrollDirection, a);
+                      d || (c = this._scrollPerClick), this.transformCarousel("-".concat(c, "px"), !0), this.checkIfInvert(this._scrollDirection, c);
                     }
                     if ("standard" === this._mode) {
-                      var h = this._scrollPerClick * s;
-                      this.sliderContainer.scrollTo({ left: h, behavior: "smooth" });
+                      var u = this._scrollPerClick * s;
+                      this.sliderContainer.scrollTo({ left: u, behavior: "smooth" });
                     }
                   }
                   t.classList.add("active");
@@ -683,13 +707,13 @@
                 },
               },
             ]),
-            a && n(c.prototype, a),
-            v && n(c, v),
-            Object.defineProperty(c, "prototype", { writable: !1 }),
+            f && o(a.prototype, f),
+            v && o(a, v),
+            Object.defineProperty(a, "prototype", { writable: !1 }),
             _
           );
-        })(c(HTMLElement));
-        window && window.customElements.define("jpl-carousel", v);
+        })(l(HTMLElement));
+        window && window.customElements.define("jpl-carousel", f);
       },
     },
     e = {};
