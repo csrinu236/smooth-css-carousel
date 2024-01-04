@@ -384,7 +384,8 @@
                       ? (this._sliderWidth = (this._marginLeft + this._marginRight + this._contentWidth) * this._contentArray.length)
                       : (this._sliderWidth = t * this._contentArray.length),
                     ("wrap" != this._mode && "standard" != this._mode) ||
-                      (this.slider.style.setProperty("transform", "translateX(0px)"), this.slider.style.setProperty("transition", "all 0.2s linear"));
+                      (this.slider.style.setProperty("transform", "translateX(0px)"),
+                      this.slider.style.setProperty("transition", "all 0.25s linear"));
                 },
               },
               {
