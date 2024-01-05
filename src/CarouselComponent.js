@@ -64,6 +64,8 @@ const CarouselComponent = ({ length = 40, CI }) => {
         mode="standard"
         scrollMode="manual"
         isMobile="false"
+        pressholddown={hasFocusedChild ? "true" : "false"}
+        direction="right"
       >
         <div class="jpl-carousel-arrow jpl-arrow-left">
           <button id="jpl-previous">

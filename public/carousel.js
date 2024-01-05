@@ -241,20 +241,20 @@
                     if ("right" === e)
                       (i.style.transform = "translateX(-".concat(o + l, "px)")),
                         o + l + t._scrollPerClick < t._sliderWidth - 10 &&
-                          requestAnimationFrame(function (t) {
+                          (t._requestAnimationFrame = requestAnimationFrame(function (t) {
                             return n(t);
-                          });
+                          }));
                     else {
                       t._sliderWidth, t.sliderContainer.offsetWidth;
                       console.log({ scrollWidth: o, distanceToBeMovedInOneCB: l }),
                         (i.style.transform = o - l < 0 ? "translateX(0)" : "translateX(".concat(-(o - l), "px)")),
                         o - l >= 0 &&
-                          requestAnimationFrame(function (t) {
+                          (t._requestAnimationFrame = requestAnimationFrame(function (t) {
                             return n(t);
-                          });
+                          }));
                     }
                   };
-                requestAnimationFrame(function (t) {
+                t._requestAnimationFrame = requestAnimationFrame(function (t) {
                   return n(t);
                 });
               }),
@@ -317,8 +317,9 @@
                   var t = this;
                   setTimeout(function () {
                     (t._withControls = t.getAttribute("withcontrols") || "auto"),
-                      (t._pressHoldDown = "true" === t.getAttribute("pressholddown") || !1),
+                      (t._pressHoldDown = "true" === t.getAttribute("pressholddown")),
                       (t._direction = "right" === t.getAttribute("direction") ? "right" : "left"),
+                      t._requestAnimationFrame,
                       (t._mode = t.getAttribute("mode") || "standard"),
                       (t._type = t.getAttribute("type") || "cards"),
                       (t._scrollMode = t.getAttribute("scrollmode") || "manual"),
@@ -334,7 +335,11 @@
                           "attributes" === e.type &&
                             (console.log("Attribute " + e.attributeName + " changed to " + t.getAttribute(e.attributeName)),
                             "cards" == t._type &&
-                              ((t._pressHoldDown = t.getAttribute("pressholddown")), t._pressHoldDown && t.smoothScroll(t._direction)));
+                              ((t._pressHoldDown = "true" === t.getAttribute("pressholddown")),
+                              console.log({ _pressHoldDown: t._pressHoldDown, doc: t }),
+                              t._pressHoldDown
+                                ? t.smoothScroll(t._direction)
+                                : (console.log("Cacelling raf", t._requestAnimationFrame), cancelAnimationFrame(t._requestAnimationFrame))));
                         });
                       })),
                       t.initCarousel(),
@@ -384,8 +389,7 @@
                       ? (this._sliderWidth = (this._marginLeft + this._marginRight + this._contentWidth) * this._contentArray.length)
                       : (this._sliderWidth = t * this._contentArray.length),
                     ("wrap" != this._mode && "standard" != this._mode) ||
-                      (this.slider.style.setProperty("transform", "translateX(0px)"),
-                      this.slider.style.setProperty("transition", "all 0.25s linear"));
+                      (this.slider.style.setProperty("transform", "translateX(0px)"), this.slider.style.setProperty("transition", "all 0.2s linear"));
                 },
               },
               {
