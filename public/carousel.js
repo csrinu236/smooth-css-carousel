@@ -246,8 +246,7 @@
                           }));
                     else {
                       t._sliderWidth, t.sliderContainer.offsetWidth;
-                      console.log({ scrollWidth: o, distanceToBeMovedInOneCB: l }),
-                        (i.style.transform = o - l < 0 ? "translateX(0)" : "translateX(".concat(-(o - l), "px)")),
+                      (i.style.transform = o - l < 0 ? "translateX(0)" : "translateX(".concat(-(o - l), "px)")),
                         o - l >= 0 &&
                           (t._requestAnimationFrame = requestAnimationFrame(function (t) {
                             return n(t);
@@ -338,8 +337,11 @@
                               ((t._pressHoldDown = "true" === t.getAttribute("pressholddown")),
                               console.log({ _pressHoldDown: t._pressHoldDown, doc: t }),
                               t._pressHoldDown
-                                ? t.smoothScroll(t._direction)
-                                : (console.log("Cacelling raf", t._requestAnimationFrame), cancelAnimationFrame(t._requestAnimationFrame))));
+                                ? (t.smoothScroll(t._direction),
+                                  setTimeout(function () {
+                                    console.log("Cancelling raf", t._requestAnimationFrame), window.cancelAnimationFrame(t._requestAnimationFrame);
+                                  }, 2e3))
+                                : window.cancelAnimationFrame(t._requestAnimationFrame)));
                         });
                       })),
                       t.initCarousel(),
